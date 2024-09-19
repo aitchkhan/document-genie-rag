@@ -12,7 +12,7 @@ import os
 st.set_page_config(page_title="Document Genie", layout="wide")
 
 st.markdown("""
-## Document Genie: Get instant insights from your Documents
+## Ehsaan Tech Document: Get instant insights from your Documents
 
 This chatbot is built using the Retrieval-Augmented Generation (RAG) framework, leveraging Google's Generative AI model Gemini-PRO. It processes uploaded PDF documents by breaking them down into manageable chunks, creates a searchable vector store, and generates accurate answers to user queries. This advanced approach ensures high-quality, contextually relevant responses for an efficient and effective user experience.
 
@@ -20,17 +20,16 @@ This chatbot is built using the Retrieval-Augmented Generation (RAG) framework, 
 
 Follow these simple steps to interact with the chatbot:
 
-1. **Enter Your API Key**: You'll need a Google API key for the chatbot to access Google's Generative AI models. Obtain your API key https://makersuite.google.com/app/apikey.
+1. **Upload Your Documents**: The system accepts multiple PDF files at once, analyzing the content to provide comprehensive insights.
 
-2. **Upload Your Documents**: The system accepts multiple PDF files at once, analyzing the content to provide comprehensive insights.
-
-3. **Ask a Question**: After processing the documents, ask any question related to the content of your uploaded documents for a precise answer.
+2. **Ask a Question**: After processing the documents, ask any question related to the content of your uploaded documents for a precise answer.
 """)
 
 
 
 # This is the first API key input; no need to repeat it in the main function.
-api_key = st.text_input("Enter your Google API Key:", type="password", key="api_key_input")
+# api_key = st.text_input("Enter your Google API Key:", type="password", key="api_key_input")
+api_key = "AIzaSyBKm5vmPCTj2-9nlNTXqvy0ghHSy_pgDlw"
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -66,7 +65,7 @@ def get_conversational_chain():
 
 def user_input(user_question, api_key):
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=api_key)
-    new_db = FAISS.load_local("faiss_index", embeddings)
+    new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
     docs = new_db.similarity_search(user_question)
     chain = get_conversational_chain()
     response = chain({"input_documents": docs, "question": user_question}, return_only_outputs=True)
