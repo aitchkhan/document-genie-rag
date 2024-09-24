@@ -1,7 +1,7 @@
-import os
+# import os
 import streamlit as st
 from PyPDF2 import PdfReader
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -11,7 +11,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_openai import ChatOpenAI
 from langchain_community.vectorstores import FAISS
 
-load_dotenv()
+# load_dotenv()
 
 st.set_page_config(page_title="Ehsaan Tech Document: Get instant insights from your Documents", layout="wide")
 

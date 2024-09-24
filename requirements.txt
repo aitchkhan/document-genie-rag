@@ -6,4 +6,3 @@ faiss-cpu  # For the FAISS vector store (CPU version)
 langchain-openai  # For OpenAI Embeddings (updated version)
 langchain-community  # For FAISS and community-supported components
 tiktoken  # Required for OpenAI embeddings
-python-dotenv
