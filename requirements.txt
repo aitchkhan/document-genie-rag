@@ -1,8 +1,9 @@
-streamlit
-google-generativeai
-langchain
-PyPDF2
-chromadb
-faiss-cpu
-langchain_google_genai
-langchain-community
+streamlit  # Version can vary, use your current version
+openai  # OpenAI API integration for GPT models
+langchain  # For the core LangChain functionality
+PyPDF2  # For handling PDFs
+faiss-cpu  # For the FAISS vector store (CPU version)
+langchain-openai  # For OpenAI Embeddings (updated version)
+langchain-community  # For FAISS and community-supported components
+tiktoken  # Required for OpenAI embeddings
+python-dotenv
