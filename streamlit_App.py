@@ -30,7 +30,8 @@ Follow these simple steps to interact with the chatbot:
 """)
 
 # Access the OpenAI API key from the environment
-api_key = os.getenv('OPENAI_API_KEY')
+# api_key = os.getenv('OPENAI_API_KEY')
+api_key = st.secrets["OPENAI_API_KEY"]
 if not api_key:
     raise ValueError("No OpenAI API key found in environment variables.")
 
